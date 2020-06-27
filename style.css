@@ -26,3 +26,15 @@ button {
   display: flex;
   justify-content: center;
 }
+
+#game_container {
+  height: 70%;
+  display: flex;
+  justify-content: center;
+}
+
+.div-game {
+  width: 10px;
+  height: 10px;
+  border: 1px grey solid;
+}
