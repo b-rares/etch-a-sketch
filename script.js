@@ -15,19 +15,23 @@ let promptToStart = () => {
 };
 //Takes input from promptToStart() and creates the game size
 let creatorDiv = (numberDiv) => {
+  let j = 0;
   for (let i = 0; i < numberDiv; i++) {
+    j++;
     let div = document.createElement(`div`);
     div.classList.add(`div-game`);
+    div.id = `div-game${i}`;
     divContainer.append(div);
   }
   const div_game = document.querySelectorAll(`.div-game`);
   return div_game;
 };
+
 //Randomize the colors and gives one to the div
 let changeColor = () => {
-  div_game.style.backgroundColor =
+  div_id.style.backgroundColor =
     colors[Math.floor(Math.random() * colors.length)];
 };
-//EventsListeners
+//EventsListeners;
 button.addEventListener(`click`, promptToStart);
-div_game.addEventListener(`onmouseover`, changeColor);
+div_game.addEventListener(`onmouseover`, changeColor(creatorDiv()));
