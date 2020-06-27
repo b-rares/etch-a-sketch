@@ -15,11 +15,15 @@ let createGrid = () => {
   divContainer.style.gridTemplateRows = `repeat (${gridSize},1fr)`;
   for (let i = 0; i < gridSize * gridSize; i++) {
     let div = document.createElement(`div`);
-    div.className.add = `div-game`;
+    div.className = "div-game";
     div.addEventListener(`mouseenter`, function () {
-      div.style.backgroundColor =
-        colors[Math.floor(Math.random * colors.length)];
+      if (div.style.backgroundColor == ``) {
+        let randomColor = colors[Math.floor(Math.random() * colors.length)];
+        div.style.backgroundColor = randomColor;
+      }
     });
-    divContainer.appendChild(div);
+    divContainer.append(div);
   }
 };
+
+createGrid();
