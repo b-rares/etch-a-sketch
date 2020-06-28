@@ -1,5 +1,5 @@
-const button = document.querySelector(`button`);
 const divContainer = document.querySelector(`#div_container`);
+const button = document.querySelector(`#button`);
 const colors = [
   `#BA7BA1`,
   `#C28CAE`,
@@ -22,8 +22,22 @@ let createGrid = () => {
         div.style.backgroundColor = randomColor;
       }
     });
-    divContainer.append(div);
+    divContainer.appendChild(div);
   }
 };
+
+let restart = () => {
+  gridSize = prompt(`How many divs?`);
+  deleteGrid();
+  createGrid();
+};
+
+let deleteGrid = () => {
+  while (divContainer.hasChildNodes) {
+    divContainer.removeChild(divContainer.firstChild);
+  }
+};
+
+button.addEventListener(`click`, restart);
 
 createGrid();
